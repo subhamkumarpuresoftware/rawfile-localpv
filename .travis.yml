@@ -1,4 +1,11 @@
 os: linux
+services:
+  - docker
+
+arch: 
+  - arm64
+  - amd64
+os: linux
 dist: bionic
 language: minimal
 jobs:
