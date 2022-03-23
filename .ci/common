@@ -6,12 +6,12 @@ slugify() {
 }
 # if [`uname -m`=="aarch64"]; 
 # then 
-#   Img= "subham328/rawfile-localpv-arm64"; 
+#   Img= "-arm64"; 
 # else 
-#   Img= "subham328/rawfile-localpv-amd64"; 
+#   Img= "-amd64"; 
 # fi
 # echo $Img
-export IMAGE="subham328/rawfile-localpv"
+export IMAGE="subham328/rawfile-localpv${Img}"
 # export IMAGE= (( `uname -m`=="aarch64" ? "subham328/rawfile-localpv-arm64" : "subham328/rawfile-localpv-amd64" ))
 # if [`uname -m`=="aarch64"]; 
 # then 
@@ -32,13 +32,8 @@ export CI_IMAGE_URI="${CI_IMAGE_REPO}:${CI_TAG}"
 function TagAndPushImage() {
   REPO="$1"
   TAG="$2"
-  if [`uname -m`=="aarch64"]; 
-  then 
-    IMAGE_URI= "${REPO}:${TAG}-arm64-${TAG_SUFFIX}"; 
-  else 
-    IMAGE_URI= "${REPO}:${TAG}-amd64-${TAG_SUFFIX}"; 
-  fi
-  IMAGE_URI="${REPO}:${TAG}${TAG_SUFFIX}";
+  
+  IIMAGE_URI="${REPO}:${TAG}${TAG_SUFFIX}";
   sudo docker tag ${CI_IMAGE_URI} ${IMAGE_URI};
   echo " push ${IMAGE_URI}";
   sudo docker push ${IMAGE_URI};
