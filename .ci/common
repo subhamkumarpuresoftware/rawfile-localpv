@@ -5,7 +5,7 @@ slugify() {
   echo "$1" | sed -r 's/[^.a-zA-Z0-9]+/-/g'
 }
 
-export IMAGE="openebs/rawfile-localpv"
+export IMAGE="subham328/rawfile-localpv"
 export COMMIT=$(git rev-parse --short HEAD)
 export BRANCH=${TRAVIS_BRANCH:-$(git rev-parse --abbrev-ref HEAD)}
 export BRANCH_SLUG=$(slugify $BRANCH)
