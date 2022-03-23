@@ -4,13 +4,8 @@ set -ex
 slugify() {
   echo "$1" | sed -r 's/[^.a-zA-Z0-9]+/-/g'
 }
-if [[ `uname -m` = "aarch64" ]]
-then
-  ARCH="ARM64"
-else
-  ARCH="AMD64"
-fi
-export IMAGE="subham328/rawfile-localpv"-$(ARCH)
+
+export IMAGE=if [`uname -m`=="aarch64"]; then echo "subham328/rawfile-localpv-arm64"; else echo "subham328/rawfile-localpv-amd64"; fi
 export COMMIT=$(git rev-parse --short HEAD)
 export BRANCH=${TRAVIS_BRANCH:-$(git rev-parse --abbrev-ref HEAD)}
 export BRANCH_SLUG=$(slugify $BRANCH)
