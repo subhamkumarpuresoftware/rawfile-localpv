@@ -3,7 +3,7 @@ services:
   - docker
 
 arch: 
-  - arm64
+#   - arm64
   - amd64
 os: linux
 dist: bionic
