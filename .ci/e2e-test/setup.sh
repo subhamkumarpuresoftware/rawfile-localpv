@@ -2,7 +2,7 @@
 set -ex
 source .ci/common
 arch=`uname -m`
-if [[ $arch -eq 'x86_64' ]]
+if [[ $arch == 'x86_64' ]]
 then
         arch="amd64"
 else
