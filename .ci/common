@@ -4,21 +4,11 @@ set -ex
 slugify() {
   echo "$1" | sed -r 's/[^.a-zA-Z0-9]+/-/g'
 }
-if [`uname -m`=="aarch64"]; 
-then 
-  IMAGE= "subham328/rawfile-localpv-arm64"; 
-else 
-  IMAGE= "subham328/rawfile-localpv-amd64"; 
-fi
+if [`uname -m`=="aarch64"]; then echo "subham328/rawfile-localpv-arm64"; else echo "subham328/rawfile-localpv-amd64"; fi
 # echo $Img
-# export IMAGE="subham328/rawfile-localpv${Img}"
-# export IMAGE= (( `uname -m`=="aarch64" ? "subham328/rawfile-localpv-arm64" : "subham328/rawfile-localpv-amd64" ))
-# if [`uname -m`=="aarch64"]; 
-# then 
-# IMAGE= "subham328/rawfile-localpv-arm64"; 
-# else 
-# IMAGE= "subham328/rawfile-localpv-amd64"; 
-# fi
+export ARCH= `uname -m'
+export IMAGE="subham328/rawfile-localpv-${ARCH}"
+
 
 export COMMIT=$(git rev-parse --short HEAD)
 export BRANCH=${TRAVIS_BRANCH:-$(git rev-parse --abbrev-ref HEAD)}
