@@ -22,4 +22,5 @@ function TagAndPushImage() {
   IMAGE_URI="${REPO}:${TAG}${TAG_SUFFIX}";
   sudo docker tag ${CI_IMAGE_URI} ${IMAGE_URI};
   echo " push ${IMAGE_URI}";
-  sudo
+  sudo docker push ${IMAGE_URI};
+}
