@@ -9,8 +9,8 @@ else
         arch="arm64"
 fi
 
-K8S_VERSION=1.23.1
-MINIKUBE_VERSION=1.25.2
+K8S_VERSION=1.21.5
+MINIKUBE_VERSION=1.21.0
 curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v${K8S_VERSION}/bin/linux/${arch}/kubectl && chmod +x kubectl && sudo mv kubectl /usr/local/bin/
 sudo apt update && sudo apt install -y conntrack
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/v${MINIKUBE_VERSION}/minikube-linux-${arch} && chmod +x minikube && sudo mv minikube /usr/local/bin/
