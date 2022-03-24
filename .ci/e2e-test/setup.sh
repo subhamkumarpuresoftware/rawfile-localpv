@@ -17,7 +17,8 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/v${MINIKUBE_V
 mkdir -p $HOME/.kube $HOME/.minikube
 touch $KUBECONFIG
 sudo systemctl enable docker.service
-sudo minikube start --profile=minikube --vm-driver=none --kubernetes-version=v${K8S_VERSION}
+# sudo minikube start --profile=minikube --vm-driver=none --kubernetes-version=v${K8S_VERSION}
+sudo minikube start
 minikube update-context --profile=minikube
 eval "$(minikube docker-env --profile=minikube)" && export DOCKER_CLI='docker'
 
