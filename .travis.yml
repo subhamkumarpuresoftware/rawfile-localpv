@@ -5,7 +5,6 @@ services:
 arch: 
   - amd64
   - arm64
-os: linux
 dist: bionic
 language: minimal
 jobs:
