@@ -3,8 +3,8 @@ services:
   - docker
 
 arch: 
-  - amd64
   - arm64
+  - amd64
 dist: bionic
 language: minimal
 jobs:
