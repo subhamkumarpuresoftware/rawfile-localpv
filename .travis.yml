@@ -2,7 +2,7 @@ os: linux
 services:
   - docker
 
-dist: focal
+dist: bionic
 language: minimal
 jobs:
   include:
