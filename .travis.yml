@@ -1,11 +1,17 @@
+language: minimal
+sudo: true
 os: linux
 services:
   - docker
-dist: bionic
-arch: 
-  - arm64
-  - amd64
-language: minimal
+matrix:
+  include:
+    - os: linux
+      dist: bionic
+      arch: arm64
+    - os: linux
+      dist: bionic
+      arch: amd64
+
 jobs:
   include:
 #     - stage: build
@@ -25,8 +31,8 @@ jobs:
         - MINIKUBE_HOME=$HOME
         - CHANGE_MINIKUBE_NONE_USER=true
         - KUBECONFIG=$HOME/.kube/config
-#     - stage: publish
-#       script: ./.ci/publish.sh
+    - stage: publish
+      script: ./.ci/publish.sh
       
       
       
