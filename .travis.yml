@@ -9,6 +9,7 @@ jobs:
     - stage: build
       arch: 
         - arm64
+        - amd64
       script: ./.ci/build.sh
 #     - stage: e2e-test
 #       install: ./.ci/e2e-test/setup.sh
