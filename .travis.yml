@@ -1,17 +1,18 @@
 os: linux
 services:
   - docker
-
-arch: 
-  - amd64
-  - arm64
-  
 os: linux
 dist: bionic
+
+
+  
 language: minimal
 jobs:
   include:
     - stage: build
+      arch: 
+        - amd64
+        - arm64
       script: ./.ci/build.sh
 #     - stage: e2e-test
 #       install: ./.ci/e2e-test/setup.sh
