@@ -10,7 +10,7 @@ arch:
 jobs:
   include:
     - stage: build
-      script: ./.ci/build.sh
+      script: uname -m
       
 #     - stage: build-arm
 #       arch: arm64
